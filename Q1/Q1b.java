@@ -7,8 +7,11 @@ public class Q1b {
     public static int minCoins(int[] ratings) {
         int n = ratings.length;
         int[] coins = new int[n];
+        // Initialize all elements with 1 coin
         Arrays.fill(coins, 1);
 
+
+        // Traverse the ratings array from left to right
         for (int i = 1; i < n; i++) {
             if (ratings[i] > ratings[i - 1]) {
                 coins[i] = coins[i - 1] + 1;

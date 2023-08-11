@@ -14,6 +14,7 @@ public class Q2b {
         this.totalPorts = totalPorts;
         this.blacklist = new HashSet<>();
         for (int port : blacklistedPorts) {
+            // Populate the blacklist set
             blacklist.add(port);
         }
         this.whitelistedCount = totalPorts - blacklist.size();

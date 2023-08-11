@@ -2,10 +2,10 @@ package Q3;
 
 import java.util.*;
 
-class Q3b {
+class MyMaxHeap {
     private List<Integer> heap;
 
-    public Q3b() {
+    public MyMaxHeap() {
         heap = new ArrayList<>();
     }
 
@@ -80,7 +80,7 @@ class MyEdge {
     }
 }
 
-     class MyBellmanFord {
+public class Q3b {
     private static final int INF = Integer.MAX_VALUE;
 
     public static int[] bellmanFord(List<MyEdge> graph, int vertices, int source) {
