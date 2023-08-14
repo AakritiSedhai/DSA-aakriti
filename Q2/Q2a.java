@@ -1,37 +1,120 @@
 package Q2;
 
-import java.util.Arrays;
-
 public class Q2a {
 
-    public static int longestSubsequence(int[] nums, int k) {
-        int n = nums.length;
-        int[] dp = new int[n];
-        Arrays.fill(dp, 1);     // Initializing all lengths to 1, as each element is a valid subsequence by itself
+    public static int longestSequence(int[] nums, int k) {
 
+
+
+        // Initialize a dynamic programming array
+
+        int[] dp = new int[nums.length];
+
+        for (int i = 0; i < dp.length; i++) {
+
+            dp[i] = 1;
+
+        }
+
+
+
+        // Iterate over the array
+
+        for (int i = 1; i < nums.length; i++) {
+
+            // Iterate over the previous elements
+
+            for (int j = 0; j < i; j++) {
+
+                // Check if the difference between the current element and the previous element
+
+                // is less than or equal to k and nums[i] < nums[j]
+
+                if (nums[j] - nums[i] <= k && nums[j] > nums[i]) {
+
+                    // Check if the current element can be added to the previous element
+
+                    if (dp[i] < dp[j] + 1) {
+
+                        dp[i] = dp[j] + 1;
+
+                    }
+
+
+
+                }
+
+            }
+
+        }
+
+
+
+        // Return the maximum value in the dp array
+
+        int max = 0;
+
+        for (int i = 0; i < dp.length; i++) {
+
+            if (dp[i] > max) {
+
+                max = dp[i];
+
+
+
+            }
+
+        }
+
+        return max;
+
+
+
+    }
+
+
+
+    public static void sortDesc(int[] nums) {
+
+        int n = nums.length;
 
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                if (Math.abs(nums[i] - nums[j]) <= k) {
-                    // Updating the length of the subsequence ending at the current element
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+
+            for (int j = 0; j < n - i - 1; j++) {
+
+                if (nums[j] < nums[j + 1]) {
+
+                    int temp = nums[j];
+
+                    nums[j] = nums[j + 1];
+
+                    nums[j + 1] = temp;
+
                 }
+
             }
+
         }
 
-        int maxLength = 0;
-        // Finding the maximum length among all subsequences
-        for (int len : dp) {
-            maxLength = Math.max(maxLength, len);
-        }
-
-        return maxLength;
     }
+
+
 
     public static void main(String[] args) {
+
+
+
         int[] nums = { 8, 5, 4, 2, 1, 4, 3, 4, 3, 1, 15 };
+
         int k = 3;
-        int output = longestSubsequence(nums, k);
-        System.out.println("Output: " + output);
+
+        int result = longestSequence(nums, k);
+
+
+
+        System.out.println(result);
+
     }
+
 }
+

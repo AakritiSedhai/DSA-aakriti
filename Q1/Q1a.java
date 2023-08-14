@@ -11,7 +11,9 @@ public class Q1a {
 
         for (int person = 1; person < 3; person++) {
             for (int color = 0; color < 3; color++) {
-                int minCostFromPreviousPersons = Math.min(minCostMatrix[person - 1][(color + 1) % 3], minCostMatrix[person - 1][(color + 2) % 3]);
+                int minCostFromPreviousPersons = Math.min(
+                        minCostMatrix[person - 1][(color + 1) % 3],
+                        minCostMatrix[person - 1][(color + 2) % 3]);
                 minCostMatrix[person][color] = clothingPrices[person][color] + minCostFromPreviousPersons;
             }
         }

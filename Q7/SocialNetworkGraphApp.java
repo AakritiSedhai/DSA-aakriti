@@ -63,7 +63,7 @@ public class SocialNetworkGraphApp {
 }
 
 class SocialNetworkGraphPanel extends JPanel {
-    private static String directory= System.getProperty("user.dir")+ "/Question_Number7/";
+    private static String directory= System.getProperty("user.dir")+ "/";
     private List<Node> nodes = new ArrayList<>();
     private List<Edge> edges = new ArrayList<>();
     private Map<String, Node> nodeMap = new HashMap<>();
@@ -217,7 +217,7 @@ class SocialNetworkGraphPanel extends JPanel {
                     int followers = Integer.parseInt(parts[3]);
                     Node node = new Node(x, y, userName, followers);
 
-                    node.profileImagePath = System.getProperty("user.dir") +"/Question_Number7/images/" + userName + ".jpg";
+                    node.profileImagePath = System.getProperty("user.dir") +"/images/" + userName + ".jpg";
                     nodes.add(node);
                     nodeMap.put(userName, node);
                 }
